@@ -1,51 +1,45 @@
-# Mage2 Module Kraken WistiaVideo
+# Kraken WistiaVideo Extension
 
-    ``kraken/module-wistiavideo``
+## Description
 
- - [Main Functionalities](#markdown-header-main-functionalities)
- - [Installation](#markdown-header-installation)
- - [Configuration](#markdown-header-configuration)
- - [Specifications](#markdown-header-specifications)
- - [Attributes](#markdown-header-attributes)
-
-
-## Main Functionalities
 Embeds Wistia videos on product detail page, in MagicZoomPlus MagicScroll thumbnails and on the page
 
-## Installation
-\* = in production please use the `--keep-generated` option
+## Usage Instructions
 
-### Type 1: Zip file
+* Install extension (make sure you apply the patch in the `patches` folder)
+* Edit any product and add a Wistia embed code (will be a string that looks like `vuli55yxky`). Save product.
+* View product on frontend and you should see Wistia video embedded on page, in a "Videos" tab
 
- - Unzip the zip file in `app/code/Kraken`
- - Enable the module by running `php bin/magento module:enable Kraken_WistiaVideo`
- - Apply database updates by running `php bin/magento setup:upgrade`\*
- - Flush the cache by running `php bin/magento cache:flush`
+## Installation Instructions
 
-### Type 2: Composer
+### Option 1 - Install extension using Composer (default approach)
 
- - Make the module available in a composer repository for example:
-    - private repository `repo.magento.com`
-    - public repository `packagist.org`
-    - public github repository as vcs
- - Add the composer repository to the configuration by running `composer config repositories.repo.magento.com composer https://repo.magento.com/`
- - Install the module composer by running `composer require kraken/module-wistiavideo`
- - enable the module by running `php bin/magento module:enable Kraken_WistiaVideo`
- - apply database updates by running `php bin/magento setup:upgrade`\*
- - Flush the cache by running `php bin/magento cache:flush`
+```bash
+composer config repositories.kraken/module-wistia-video git https://github.com/krakencommerce/magento2-module-wistia-video.git
+composer require kraken/module-wistia-video:dev-master
+bin/magento module:enable --clear-static-content Kraken_WistiaVideo
+bin/magento setup:upgrade
+bin/magento cache:flush
+```
 
+### Option 2 - Install extension by copying files into project (only if the project requires it for some reason)
 
-## Configuration
+```bash
+mkdir -p app/code/Kraken/WistiaVideo
+git archive --format=tar --remote=git@github.com:krakencommerce/magento2-module-wistia-video.git master | tar xf - -C app/code/Kraken/WistiaVideo/
+bin/magento module:enable --clear-static-content Kraken_WistiaVideo
+bin/magento setup:upgrade
+bin/magento cache:flush
+```
 
- - Aspect Ratio  (kraken_wistiavideo/video_settings/aspect_ratio)
+## Uninstallation Instructions
 
+These instructions work regardless of how you installed the extension:
 
-## Specifications
-
-
-
-
-## Attributes
-
- - Product - Product Video (product_video)
-
+```bash
+bin/magento module:disable --clear-static-content Kraken_WistiaVideo
+rm -rf app/code/Kraken/WistiaVideo
+composer remove kraken/module-wistia-video
+mr2 db:query 'DELETE FROM `setup_module` WHERE `module` = "Kraken_WistiaVideo"'
+bin/magento cache:flush
+```
