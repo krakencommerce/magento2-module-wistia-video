@@ -14,7 +14,9 @@
     }
 
     .mt-thumb-switcher.video-selector {
-        width: 60px;
+        width: 50px;
+        // Counteract the 4px of padding-bottom on `a[data-zoom-id] img, .mz-thumb img`
+        margin-top: -4px !important;
     }
 
     body .mt-thumb-switcher.video-selector img {
@@ -27,8 +29,8 @@
     }
 
     body a.mt-thumb-switcher.video-selector:before {
-        width: 50px !important;
-        height: 50px !important;
+        width: 40px !important;
+        height: 40px !important;
         background-color: @link__color !important;
     }
 
