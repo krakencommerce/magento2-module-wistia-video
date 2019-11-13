@@ -5,8 +5,16 @@
         margin: 20px auto;
     }
 
-    .mt-thumb-switcher {
-        width: 100%;
+    // Prevent video icons from being visible when page first loads
+    .MagicScroll .mt-thumb-switcher.video-selector {
+        visibility: hidden;
+    }
+    .MagicScroll .mcs-item .mt-thumb-switcher.video-selector {
+        visibility: visible;
+    }
+
+    .mt-thumb-switcher.video-selector {
+        width: 60px;
     }
 
     body .mt-thumb-switcher.video-selector img {
