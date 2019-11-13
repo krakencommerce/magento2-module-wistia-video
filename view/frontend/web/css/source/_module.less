@@ -1,0 +1,34 @@
+& when(@media-common = true) {
+    .wistia-video-wrapper {
+        width: 720px;
+        max-width: 100%;
+        margin: 20px auto;
+    }
+
+    .mt-thumb-switcher {
+        width: 100%;
+    }
+
+    body .mt-thumb-switcher.video-selector img {
+        box-shadow: none !important;
+    }
+
+    body .mt-thumb-switcher.video-selector:hover:not(.active-selector) img {
+        -webkit-filter: none !important;
+        filter: none !important;
+    }
+
+    body a.mt-thumb-switcher.video-selector:before {
+        width: 50px !important;
+        height: 50px !important;
+        background-color: @link__color !important;
+    }
+
+    body a.mt-thumb-switcher.video-selector:hover:before {
+        background-color: @link__hover__color !important;
+    }
+
+    body a.mt-thumb-switcher.video-selector:after {
+        border-left: 12px solid rgba(255,255,255,1);
+    }
+}
