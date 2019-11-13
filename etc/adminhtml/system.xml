@@ -1,17 +1,17 @@
 <?xml version="1.0" ?>
 <config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
-	<system>
-		<section id="kraken_wistiavideo" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
-			<label>kraken_wistiavideo</label>
-			<tab>krakenink</tab>
-			<resource>Kraken_WistiaVideo::config_kraken_wistiavideo</resource>
-			<group id="video_settings" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
-				<label>video_settings</label>
-				<field id="aspect_ratio" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
-					<label>Aspect Ratio </label>
-					<comment>The aspect ratio of the tallest video you'll be adding. Because the videos are embedded in a responsive container, the aspect ratio must be fixed.</comment>
-				</field>
-			</group>
-		</section>
-	</system>
+    <system>
+        <section id="kraken_wistiavideo" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+            <label>Wistia Video</label>
+            <tab>krakenink</tab>
+            <resource>Kraken_WistiaVideo::config_kraken_wistiavideo</resource>
+            <group id="video_settings" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label">
+                <label>video_settings</label>
+                <field id="aspect_ratio" showInDefault="1" showInStore="1" showInWebsite="1" sortOrder="10" translate="label" type="text">
+                    <label>Aspect Ratio </label>
+                    <comment><![CDATA[The aspect ratio of the tallest video you'll be adding. Because the videos are embedded in a responsive container, the aspect ratio must be fixed. Aspect ratios must be expressed as percentages (e.g., <code>56.25%</code>, based on the <a href="http://bit.ly/2rDRfmR">info here</a> (height / width). ]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
 </config>

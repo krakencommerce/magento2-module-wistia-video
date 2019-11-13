@@ -75,11 +75,13 @@ class AddProductVideoProductAttribute implements DataPatchInterface, PatchRevert
                 'unique' => false,
                 'apply_to' => '',
                 'group' => 'General',
-                'used_in_product_listing' => false,
+                // Set to true so this attribute will load for child products of configurable products
+                'used_in_product_listing' => true,
                 'is_used_in_grid' => true,
                 'is_visible_in_grid' => false,
                 'is_filterable_in_grid' => false,
-                'option' => array('values' => array(""))
+                'option' => array('values' => array("")),
+                'note' => 'Enter each Wistia code on a new line'
             ]
         );
 

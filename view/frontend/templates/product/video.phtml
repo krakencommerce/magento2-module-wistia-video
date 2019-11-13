@@ -1,0 +1,28 @@
+<?php
+/** @var \Kraken\WistiaVideo\Helper\Data $helper */
+$helper = $this->helper(\Kraken\WistiaVideo\Helper\Data::class);
+$product = $helper->getProduct();
+$id = 0;
+
+if (count($helper->getVideoCodes($product))): ?>
+
+    <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script>
+
+<?php endif; ?>
+
+<?php foreach($helper->getVideoCodes($product) as $videoCode): ?>
+    <?php $id++ ?>
+    <?php $videoId = 'wistia_video_id_' . $product->getId() . $id; ?>
+
+    <?php // See https://wistia.com/support/developers/construct-an-embed-code#using-a-template-approach-standard ?>
+    <?php // The 28px bottom padding accounts for the Wistia video player "Chrome" ?>
+    <div class="wistia-video-wrapper">
+        <div class="wistia_responsive_padding" style="padding:<?= $helper->getVideoAspectRatio() ?> 0 28px 0;position:relative;">
+            <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+                <div id="<?= $videoId;?>" class="wistia_embed wistia_async_<?= $videoCode?> videoFoam=true" style="height:100%;width:100%">&nbsp;
+                </div>
+            </div>
+        </div>
+    </div>
+
+<?php endforeach;
